@@ -1,9 +1,10 @@
 import axios from "../../utils/axiosConfig"
 import { loadWeather } from "../reducers/weatherReducer";
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export const getasyncWeather = (city) => async (dispatch) => {
     try {
-        const { data } = await axios.get(`/weather?q=${city}&units=metric&appid=da4194102ae0dc773e53ad7a8baa167a`);
+        const { data } = await axios.get(`/weather?q=${city}&units=metric&appid=${apiKey}`);
         localStorage.setItem("city",JSON.stringify(city));
         dispatch(loadWeather(data));
     } catch (error) {

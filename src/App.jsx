@@ -37,7 +37,8 @@ const App = () => {
     "tornado": <Tornado style={iconStyle} />,
   };
 
-  const [weatherDesc, setWeatherDesc] = useState("clear")
+  const [weatherDesc, setWeatherDesc] = useState("clear");
+  const [time, setTime] = useState(new Date());
 
   const weatherMain = useMemo(
     () => weatherDesc.split(" ").join("").toLowerCase(),   // "brokenclouds"
@@ -61,6 +62,8 @@ const App = () => {
       reset({
         city: ""
       });
+      setTime(new Date());
+
     }
 
   }
@@ -72,7 +75,7 @@ const App = () => {
     setTime(new Date());
   }
 
-  const [time, setTime] = useState(new Date());
+
 
 
   useEffect(() => {
